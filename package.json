@@ -1,0 +1,19 @@
+{
+  "name": "velocix-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npx @tailwindcss/cli -i ./resources/css/app.css -o ./public/build/assets/app.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./resources/css/app.css -o ./public/build/assets/app.css --watch",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.0.7"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18"
+  }
+}

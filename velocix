@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+// Check if vendor/autoload.php exists
+if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+    echo "\033[31mError: Composer dependencies not installed!\033[0m\n";
+    echo "Please run: composer install\n";
+    exit(1);
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+// Load environment variables
+\Velocix\Support\Env::load(__DIR__ . '/.env');
+
+use Velocix\Console\Kernel;
+use Velocix\Foundation\Application;
+
+try {
+    $app = new Application(__DIR__);
+    $kernel = new Kernel($app);
+    $kernel->handle($argv);
+} catch (\Exception $e) {
+    echo "\033[31mError: " . $e->getMessage() . "\033[0m\n";
+    echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
+    exit(1);
+}

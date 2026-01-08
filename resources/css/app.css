@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@source "../../public/**/*.php";
+@source "../../resources/views/**/*.vlx.php";
+@source "../../resources/views/layouts/*.vlx.php"; 
+@source "../../resources/views/components/*.vlx.php"; 
+@source "../../resources/views/pages/*.vlx.php"; 
+@source "../../resources/views/auth/*.vlx.php"; 
+@source "../../resources/views/**/*.php";
+@source "../../resources/**/*.js";
+
+@theme {
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --color-primary: #3b82f6;
+    --color-secondary: #8b5cf6;
+}
