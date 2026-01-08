@@ -29,7 +29,7 @@ if (file_exists($app->basePath('.env'))) {
 }
 
 // Load exception classes manually (FIX untuk autoload issue)
-require_once __DIR__ . '/../vendor/velocix/framework/src/Foundation/Exceptions/HttpException.php';
+require_once __DIR__ . '/../vendor/trioagus/velocix-framework/src/Foundation/Exceptions/HttpException.php';
 
 // Load database configuration
 $dbConfig = require $app->basePath('config/database.php');
