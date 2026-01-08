@@ -1,5 +1,5 @@
 {
-    "name": "velocix/velocix",
+    "name": "trioagus/velocix",
     "description": "Velocix Application Starter Kit - Fast SPA-Ready PHP Framework",
     "keywords": ["velocix", "framework", "starter", "spa", "php"],
     "license": "MIT",
@@ -12,8 +12,7 @@
     ],
     "require": {
         "php": "^8.0|^8.1|^8.2|^8.3|^8.4|^8.5",
-        "velocix/framework": "^1.0",
-       "trioagus/velocix-framework": "^1.0"
+        "trioagus/velocix-framework": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.0|^11.0"
