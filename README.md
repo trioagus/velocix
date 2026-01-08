@@ -318,5 +318,5 @@ Created and maintained by [Trio zagus](https://github.com/trioagus)
 ## Support
 
 - 📧 Email: support@velocix.dev
-- 🐛 Issues: [GitHub Issues](https://github.com/velocix/framework/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/trioagus/velocix/issues)
 - 💬 Discord: [Join our community](https://discord.gg/velocix)
