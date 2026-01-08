@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [],
+  plugins: [tailwindcss()],
   build: {
     manifest: 'manifest.json',
     outDir: 'public/build',
-    emptyOutDir: false,
+    emptyOutDir: true,
     rollupOptions: {
       input: './resources/js/app.js'
     }
@@ -13,5 +14,11 @@ export default defineConfig({
   publicDir: false,
   server: {
     port: 5173,
+    proxy: {
+      '/api': 'http://localhost'
+    },
+    hmr: {
+      host: 'localhost',
+    },
   }
 });

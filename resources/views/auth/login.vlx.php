@@ -1,4 +1,4 @@
-@extends('guest.app')
+@extends('layouts.guest')
 
 @section('title', 'Login')
 
@@ -60,25 +60,35 @@
 
 @section('scripts')
     <script>
-        // Handle form submission feedback
         window.addEventListener('velocix:afterSubmit', (e) => {
-            // Clear previous errors
+            const response = e.detail.data;
+            
             document.querySelectorAll('[data-error]').forEach(el => {
                 el.classList.add('hidden');
                 el.textContent = '';
             });
 
-            if (e.detail.data.errors) {
-                // Show validation errors
-                Object.keys(e.detail.data.errors).forEach(field => {
+            if (response.errors) {
+                Object.keys(response.errors).forEach(field => {
                     const errorEl = document.querySelector(`[data-error="${field}"]`);
                     if (errorEl) {
-                        errorEl.textContent = e.detail.data.errors[field][0];
+                        errorEl.textContent = response.errors[field][0];
                         errorEl.classList.remove('hidden');
                     }
                 });
-            } else if (e.detail.data.error) {
-                alert(e.detail.data.error);
+            } else if (response.error) {
+                const emailError = document.querySelector('[data-error="email"]');
+                if (emailError) {
+                    emailError.textContent = response.error;
+                    emailError.classList.remove('hidden');
+                }
+            } else if (response.redirect) {
+              
+                if (window.velocix && typeof window.velocix.navigate === 'function') {
+                    window.velocix.navigate(response.redirect);
+                } else {
+                    window.location.href = response.redirect;
+                }
             }
         });
     </script>
