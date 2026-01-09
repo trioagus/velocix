@@ -17,4 +17,5 @@ $router->group(['middleware' => GuestMiddleware::class], function($router) {
 $router->group(['middleware' => AuthMiddleware::class], function($router) {
     $router->get('/dashboard', 'App\Http\Controllers\DashboardController@index');
     $router->post('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
+    $router->get('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
 });

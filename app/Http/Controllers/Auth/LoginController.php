@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ]);
 
         if ($validator->fails()) {
@@ -40,14 +40,19 @@ class LoginController extends Controller
         ], 401);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
         
-        // Return JSON for AJAX/SPA requests
-        return $this->json([
-            'message' => 'Logged out successfully',
-            'redirect' => '/login'
-        ]);
+        // Cek apakah ini SPA request dari Velocix
+        if ($request->isSpaRequest()) {
+            return $this->json([
+                'message' => 'Logged out successfully',
+                'redirect' => '/login'
+            ]);
+        }
+        
+        // Regular redirect untuk form POST biasa
+        return redirect('/login');
     }
 }
