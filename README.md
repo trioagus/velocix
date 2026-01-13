@@ -40,7 +40,7 @@ composer require trioagus/velocix-framework
 Or create a new project with the starter kit:
 
 ```bash
-composer create-project trioagus/velocix my-app
+composer create-project velocix/velocix my-app
 cd my-app
 php velocix serve
 ```
